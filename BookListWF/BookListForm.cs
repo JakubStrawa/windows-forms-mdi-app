@@ -43,14 +43,14 @@ namespace BookListWF
 
         private void Document_UpdateBookEvent(Book book)
         {
-            ListViewItem item = new ListViewItem();
-            item.Tag = book;
-            UpdateItem(item);
-            bookListView.Items.Remove(item);
-            
-            bookListView.Items.Add(item);
-            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
-
+            foreach (ListViewItem i in bookListView.Items)
+            {
+                if (ReferenceEquals(i.Tag, book))
+                {
+                    i.Tag = book;
+                    UpdateItem(i);
+                }
+            }
         }
 
         private void Document_DeleteBookEvent(Book book)

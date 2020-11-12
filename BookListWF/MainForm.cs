@@ -25,6 +25,7 @@ namespace BookListWF
             BookListForm bookListForm = new BookListForm(mainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
+            LayoutMdi(MdiLayout.TileVertical);
         }
     }
 }

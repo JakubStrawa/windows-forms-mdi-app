@@ -111,5 +111,16 @@ namespace BookListWF
         {
             ToolStripManager.RevertMerge(((MainForm)MdiParent).mainToolStrip, childToolStrip);
         }
+
+        private void BookListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+            if ( MdiParent.MdiChildren.Length == 1 )
+            {
+                var result = MessageBox.Show("Do you want to close the last window?"," ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                    e.Cancel = true;
+            }
+        }
     }
 }

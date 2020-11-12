@@ -235,6 +235,7 @@
             this.Text = "Book List";
             this.Activated += new System.EventHandler(this.BookListForm_Activated);
             this.Deactivate += new System.EventHandler(this.BookListForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookListForm_FormClosing);
             this.Load += new System.EventHandler(this.BookListForm_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);

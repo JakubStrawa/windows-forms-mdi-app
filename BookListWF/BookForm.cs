@@ -16,5 +16,30 @@ namespace BookListWF
         {
             InitializeComponent();
         }
+
+        private void BookForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleTextBox_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleTextBox_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

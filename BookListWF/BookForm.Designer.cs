@@ -198,6 +198,8 @@
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(266, 20);
             this.authorTextBox.TabIndex = 5;
+            this.authorTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.authorTextBox_Validating);
+            this.authorTextBox.Validated += new System.EventHandler(this.authorTextBox_Validated);
             // 
             // releaseDateTimePicker
             // 

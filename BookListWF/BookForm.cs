@@ -83,7 +83,7 @@ namespace BookListWF
                 if (BookTitle.Length <= 2)
                     throw new Exception("Book title is too short.");
                 foreach (Book b in books)
-                    if (b.Title == BookTitle && !ReferenceEquals(b, books))
+                    if (b.Title == BookTitle && !ReferenceEquals(b, book))
                         throw new Exception("Book already exists.");
             }
             catch (Exception exception)

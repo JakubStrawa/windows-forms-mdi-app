@@ -23,7 +23,6 @@ namespace BookListWF
 
         public void UpdateBook(Book book)
         {
-            //throw new NotImplementedException();
             foreach (Book b in books)
                 if(ReferenceEquals(b, book))
                 {
@@ -40,6 +39,10 @@ namespace BookListWF
             Console.WriteLine("List size: " + books.Count);
             books.Remove(book);
             Console.WriteLine("List size: " + books.Count);
+            foreach(Book b in books)
+            {
+                Console.WriteLine(b.Title + b.Author + b.Genre);
+            }
             DeleteBookEvent?.Invoke(book);
         }
     }

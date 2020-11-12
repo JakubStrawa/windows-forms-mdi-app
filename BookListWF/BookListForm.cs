@@ -38,6 +38,7 @@ namespace BookListWF
             item.Tag = book;
             UpdateItem(item);
             bookListView.Items.Add(item);
+            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
         private void Document_UpdateBookEvent(Book book)
@@ -46,7 +47,9 @@ namespace BookListWF
             item.Tag = book;
             UpdateItem(item);
             bookListView.Items.Remove(item);
+            
             bookListView.Items.Add(item);
+            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
 
         }
 
@@ -58,6 +61,7 @@ namespace BookListWF
             item.Tag = book;
             UpdateItem(item);
             bookListView.Items.Remove(item);
+            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,6 +105,7 @@ namespace BookListWF
             if (bookListView.SelectedItems.Count == 1)
             {
                 Book book = (Book)bookListView.SelectedItems[0].Tag;
+                //Console.WriteLine(book.Title + book.Author + book.Genre);
                 //bookListView.Items.Remove(bookListView.SelectedItems[0]);
                 Document.DeleteBook(book);
             }
@@ -121,7 +126,7 @@ namespace BookListWF
         private void UpdateItems()
         {
             //only called when new Form is created
-            //function creates new listView content from main document
+            //function creates new listView content from current version of main document
             bookListView.Items.Clear();
             foreach (Book book in Document.books)
             {
@@ -130,16 +135,23 @@ namespace BookListWF
                 UpdateItem(item);
                 bookListView.Items.Add(item);
             }
+            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
         private void BookListForm_Activated(object sender, EventArgs e)
         {
             ToolStripManager.Merge(childToolStrip, ((MainForm)MdiParent).mainToolStrip);
+            this.childStatusStrip.Items.RemoveAt(0);
+            StatusStrip dest = (StatusStrip)this.MdiParent.Controls["mainStatusStrip"];
+            dest.Items.Add(countToolStripStatusLabel);
         }
 
         private void BookListForm_Deactivate(object sender, EventArgs e)
         {
             ToolStripManager.RevertMerge(((MainForm)MdiParent).mainToolStrip, childToolStrip);
+            StatusStrip dest = (StatusStrip)this.MdiParent.Controls["mainStatusStrip"];
+            dest.Items.Remove(countToolStripStatusLabel);
+            this.childStatusStrip.Items.Add(countToolStripStatusLabel);
         }
 
         private void BookListForm_FormClosing(object sender, FormClosingEventArgs e)

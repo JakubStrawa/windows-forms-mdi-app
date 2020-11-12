@@ -53,21 +53,29 @@
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releasedBefore2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releasedAfter2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.childStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.childMenuStrip.SuspendLayout();
             this.childToolStrip.SuspendLayout();
             this.childContextMenuStrip.SuspendLayout();
+            this.childStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
             // 
             // 
+            // toolStripContainer1.BottomToolStripPanel
+            // 
+            this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.childStatusStrip);
+            // 
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.bookListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(540, 329);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(540, 307);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -92,7 +100,7 @@
             this.bookListView.HideSelection = false;
             this.bookListView.Location = new System.Drawing.Point(0, 0);
             this.bookListView.Name = "bookListView";
-            this.bookListView.Size = new System.Drawing.Size(540, 329);
+            this.bookListView.Size = new System.Drawing.Size(540, 307);
             this.bookListView.TabIndex = 0;
             this.bookListView.UseCompatibleStateImageBehavior = false;
             this.bookListView.View = System.Windows.Forms.View.Details;
@@ -261,6 +269,23 @@
             this.releasedAfter2000ToolStripMenuItem.Text = "Released after 2000";
             this.releasedAfter2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedAfter2000ToolStripMenuItem_Click);
             // 
+            // childStatusStrip
+            // 
+            this.childStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.childStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.countToolStripStatusLabel});
+            this.childStatusStrip.Location = new System.Drawing.Point(0, 0);
+            this.childStatusStrip.Name = "childStatusStrip";
+            this.childStatusStrip.Size = new System.Drawing.Size(540, 22);
+            this.childStatusStrip.TabIndex = 0;
+            // 
+            // countToolStripStatusLabel
+            // 
+            this.countToolStripStatusLabel.MergeAction = System.Windows.Forms.MergeAction.Insert;
+            this.countToolStripStatusLabel.Name = "countToolStripStatusLabel";
+            this.countToolStripStatusLabel.Size = new System.Drawing.Size(13, 17);
+            this.countToolStripStatusLabel.Text = "0";
+            // 
             // BookListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +300,8 @@
             this.Deactivate += new System.EventHandler(this.BookListForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookListForm_FormClosing);
             this.Load += new System.EventHandler(this.BookListForm_Load);
+            this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
+            this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -285,6 +312,8 @@
             this.childToolStrip.ResumeLayout(false);
             this.childToolStrip.PerformLayout();
             this.childContextMenuStrip.ResumeLayout(false);
+            this.childStatusStrip.ResumeLayout(false);
+            this.childStatusStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +343,7 @@
         private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releasedBefore2000ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releasedAfter2000ToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip childStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
     }
 }

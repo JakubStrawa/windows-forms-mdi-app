@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace BookListWF
 {
+    public enum Genres
+    {
+        Poetry, Fantasy, DetectiveStory
+    }
+
     public class Book
     {
         public string Title
@@ -26,13 +31,13 @@ namespace BookListWF
             set;
         }
 
-        public int Genre
+        public Genres Genre
         {
             get;
             set;
         }
 
-        public Book( string title, string author, DateTime releaseDate, int genre )
+        public Book( string title, string author, DateTime releaseDate, Genres genre )
         {
             Title = title;
             Author = author;

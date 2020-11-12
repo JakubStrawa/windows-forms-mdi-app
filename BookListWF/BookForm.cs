@@ -30,9 +30,9 @@ namespace BookListWF
             get { return releaseDateTimePicker.Value; }
         }
 
-        public int BookGenre
+        public Genres BookGenre
         {
-            get { return genreComboBox.SelectedIndex; }
+            get { return (Genres)genreComboBox.SelectedIndex; }
         }
 
         public BookForm(Book book, List<Book> books)
@@ -49,14 +49,14 @@ namespace BookListWF
                 titleTextBox.Text = book.Title;
                 authorTextBox.Text = book.Author;
                 releaseDateTimePicker.Value = book.ReleaseDate;
-                genreComboBox.SelectedIndex = book.Genre;
+                genreComboBox.SelectedIndex = (int)book.Genre;
             }
             else
             {
                 titleTextBox.Text = "Harry Potter";
                 authorTextBox.Text = "J. K. Rowling";
                 releaseDateTimePicker.Value = new DateTime(1997, 6, 26);
-                genreComboBox.SelectedIndex = 1;
+                genreComboBox.SelectedIndex = (int)Genres.Fantasy;
             }
         }
 

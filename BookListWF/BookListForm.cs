@@ -86,7 +86,7 @@ namespace BookListWF
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
             item.SubItems[0].Text = book.Title;
             item.SubItems[1].Text = book.Author;
-            item.SubItems[2].Text = book.ReleaseDate.ToLongTimeString();
+            item.SubItems[2].Text = book.ReleaseDate.ToShortDateString();
             item.SubItems[3].Text = book.Genre.ToString();
         }
 

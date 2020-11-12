@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookListForm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.childMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.childToolStrip = new System.Windows.Forms.ToolStrip();
-            this.editMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.bookListView = new System.Windows.Forms.ListView();
             this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.authorColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.releaseDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.genreColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.childMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.editMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.childToolStrip = new System.Windows.Forms.ToolStrip();
+            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.childContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -76,55 +76,6 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.childMenuStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.childToolStrip);
             // 
-            // childMenuStrip
-            // 
-            this.childMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.childMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editMenuToolStripMenuItem});
-            this.childMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.childMenuStrip.Name = "childMenuStrip";
-            this.childMenuStrip.Size = new System.Drawing.Size(540, 24);
-            this.childMenuStrip.TabIndex = 0;
-            this.childMenuStrip.Text = "childMenuStrip";
-            // 
-            // childToolStrip
-            // 
-            this.childToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.childToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripButton,
-            this.editToolStripButton,
-            this.deleteToolStripButton});
-            this.childToolStrip.Location = new System.Drawing.Point(3, 24);
-            this.childToolStrip.Name = "childToolStrip";
-            this.childToolStrip.Size = new System.Drawing.Size(168, 25);
-            this.childToolStrip.TabIndex = 1;
-            // 
-            // editMenuToolStripMenuItem
-            // 
-            this.editMenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.editMenuToolStripMenuItem.Name = "editMenuToolStripMenuItem";
-            this.editMenuToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editMenuToolStripMenuItem.Text = "&Edit";
-            // 
-            // addToolStripButton
-            // 
-            this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
-            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addToolStripButton.Name = "addToolStripButton";
-            this.addToolStripButton.Size = new System.Drawing.Size(49, 22);
-            this.addToolStripButton.Text = "Add";
-            // 
-            // editToolStripButton
-            // 
-            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
-            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editToolStripButton.Name = "editToolStripButton";
-            this.editToolStripButton.Size = new System.Drawing.Size(47, 22);
-            this.editToolStripButton.Text = "Edit";
-            // 
             // bookListView
             // 
             this.bookListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -133,6 +84,7 @@
             this.releaseDateColumnHeader,
             this.genreColumnHeader});
             this.bookListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookListView.FullRowSelect = true;
             this.bookListView.HideSelection = false;
             this.bookListView.Location = new System.Drawing.Point(0, 0);
             this.bookListView.Name = "bookListView";
@@ -160,6 +112,27 @@
             this.genreColumnHeader.Text = "Genre";
             this.genreColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // childMenuStrip
+            // 
+            this.childMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.childMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editMenuToolStripMenuItem});
+            this.childMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.childMenuStrip.Name = "childMenuStrip";
+            this.childMenuStrip.Size = new System.Drawing.Size(540, 24);
+            this.childMenuStrip.TabIndex = 0;
+            this.childMenuStrip.Text = "childMenuStrip";
+            // 
+            // editMenuToolStripMenuItem
+            // 
+            this.editMenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.editMenuToolStripMenuItem.Name = "editMenuToolStripMenuItem";
+            this.editMenuToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editMenuToolStripMenuItem.Text = "&Edit";
+            // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
@@ -174,6 +147,52 @@
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // childToolStrip
+            // 
+            this.childToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.childToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripButton,
+            this.editToolStripButton,
+            this.deleteToolStripButton});
+            this.childToolStrip.Location = new System.Drawing.Point(3, 24);
+            this.childToolStrip.Name = "childToolStrip";
+            this.childToolStrip.Size = new System.Drawing.Size(168, 25);
+            this.childToolStrip.TabIndex = 1;
+            // 
+            // addToolStripButton
+            // 
+            this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
+            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addToolStripButton.Name = "addToolStripButton";
+            this.addToolStripButton.Size = new System.Drawing.Size(49, 22);
+            this.addToolStripButton.Text = "Add";
+            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // editToolStripButton
+            // 
+            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
+            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editToolStripButton.Name = "editToolStripButton";
+            this.editToolStripButton.Size = new System.Drawing.Size(47, 22);
+            this.editToolStripButton.Text = "Edit";
+            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripButton
+            // 
+            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(60, 22);
+            this.deleteToolStripButton.Text = "Delete";
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // childContextMenuStrip
             // 
             this.childContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -186,41 +205,30 @@
             // addContextToolStripMenuItem
             // 
             this.addContextToolStripMenuItem.Name = "addContextToolStripMenuItem";
-            this.addContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.addContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addContextToolStripMenuItem.Text = "Add";
+            this.addContextToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editContextToolStripMenuItem
             // 
             this.editContextToolStripMenuItem.Name = "editContextToolStripMenuItem";
-            this.editContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editContextToolStripMenuItem.Text = "Edit";
+            this.editContextToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteContextToolStripMenuItem
             // 
             this.deleteContextToolStripMenuItem.Name = "deleteContextToolStripMenuItem";
-            this.deleteContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteContextToolStripMenuItem.Text = "Delete";
-            // 
-            // deleteToolStripButton
-            // 
-            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
-            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(60, 22);
-            this.deleteToolStripButton.Text = "Delete";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.deleteContextToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // BookListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 378);
+            this.ContextMenuStrip = this.childContextMenuStrip;
             this.Controls.Add(this.toolStripContainer1);
             this.MainMenuStrip = this.childMenuStrip;
             this.Name = "BookListForm";

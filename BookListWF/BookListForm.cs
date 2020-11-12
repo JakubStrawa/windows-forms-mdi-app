@@ -28,6 +28,8 @@ namespace BookListWF
         {
             UpdateItems();
             Document.AddBookEvent += Document_AddBookEvent;
+            Document.UpdateBookEvent += Document_UpdateBookEvent;
+            Document.DeleteBookEvent += Document_DeleteBookEvent;
         }
 
         private void Document_AddBookEvent(Book book)
@@ -36,6 +38,23 @@ namespace BookListWF
             item.Tag = book;
             UpdateItem(item);
             bookListView.Items.Add(item);
+        }
+
+        private void Document_UpdateBookEvent(Book book)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Tag = book;
+            UpdateItem(item);
+            bookListView.Items.Remove(item);
+            bookListView.Items.Add(item);
+
+        }
+
+        private void Document_DeleteBookEvent(Book book)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Tag = book;
+            bookListView.Items.Remove(item);
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,11 +95,16 @@ namespace BookListWF
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (bookListView.SelectedItems.Count == 1)
+            {
+                Book book = (Book)bookListView.SelectedItems[0].Tag;
+                Document.DeleteBook(book);
+            }
         }
 
         private void UpdateItem(ListViewItem item)
         {
+            //function called when new item need to be created
             Book book = (Book)item.Tag;
             while (item.SubItems.Count < 4)
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
@@ -92,6 +116,8 @@ namespace BookListWF
 
         private void UpdateItems()
         {
+            //only called when new Form is created
+            //function creates new listView content from main document
             bookListView.Items.Clear();
             foreach (Book book in Document.books)
             {
@@ -114,7 +140,6 @@ namespace BookListWF
 
         private void BookListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
             if ( MdiParent.MdiChildren.Length == 1 )
             {
                 var result = MessageBox.Show("Do you want to close the last window?"," ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

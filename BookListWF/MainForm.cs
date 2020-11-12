@@ -12,7 +12,7 @@ namespace BookListWF
 {
     public partial class MainForm : Form
     {
-        Document mainDocument = new Document();
+        Document MainDocument = new Document();
 
         public MainForm()
         {
@@ -22,10 +22,11 @@ namespace BookListWF
 
         private void newViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookListForm bookListForm = new BookListForm(mainDocument);
+            BookListForm bookListForm = new BookListForm(MainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
             LayoutMdi(MdiLayout.TileVertical);
         }
+
     }
 }

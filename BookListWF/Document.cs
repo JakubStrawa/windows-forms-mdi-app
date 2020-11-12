@@ -37,7 +37,9 @@ namespace BookListWF
 
         public void DeleteBook(Book book)
         {
+            Console.WriteLine("List size: " + books.Count);
             books.Remove(book);
+            Console.WriteLine("List size: " + books.Count);
             DeleteBookEvent?.Invoke(book);
         }
     }

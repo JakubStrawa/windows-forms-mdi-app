@@ -49,6 +49,10 @@
             this.addContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releasedBefore2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releasedAfter2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -116,7 +120,8 @@
             // 
             this.childMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.childMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editMenuToolStripMenuItem});
+            this.editMenuToolStripMenuItem,
+            this.showToolStripMenuItem});
             this.childMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.childMenuStrip.Name = "childMenuStrip";
             this.childMenuStrip.Size = new System.Drawing.Size(540, 24);
@@ -136,21 +141,21 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -205,23 +210,56 @@
             // addContextToolStripMenuItem
             // 
             this.addContextToolStripMenuItem.Name = "addContextToolStripMenuItem";
-            this.addContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addContextToolStripMenuItem.Text = "Add";
             this.addContextToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editContextToolStripMenuItem
             // 
             this.editContextToolStripMenuItem.Name = "editContextToolStripMenuItem";
-            this.editContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editContextToolStripMenuItem.Text = "Edit";
             this.editContextToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteContextToolStripMenuItem
             // 
             this.deleteContextToolStripMenuItem.Name = "deleteContextToolStripMenuItem";
-            this.deleteContextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteContextToolStripMenuItem.Text = "Delete";
             this.deleteContextToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allToolStripMenuItem,
+            this.releasedBefore2000ToolStripMenuItem,
+            this.releasedAfter2000ToolStripMenuItem});
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.showToolStripMenuItem.Text = "&Show";
+            // 
+            // allToolStripMenuItem
+            // 
+            this.allToolStripMenuItem.Checked = true;
+            this.allToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.allToolStripMenuItem.Name = "allToolStripMenuItem";
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.allToolStripMenuItem.Text = "All";
+            this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
+            // 
+            // releasedBefore2000ToolStripMenuItem
+            // 
+            this.releasedBefore2000ToolStripMenuItem.Name = "releasedBefore2000ToolStripMenuItem";
+            this.releasedBefore2000ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.releasedBefore2000ToolStripMenuItem.Text = "Released before 2000";
+            this.releasedBefore2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedBefore2000ToolStripMenuItem_Click);
+            // 
+            // releasedAfter2000ToolStripMenuItem
+            // 
+            this.releasedAfter2000ToolStripMenuItem.Name = "releasedAfter2000ToolStripMenuItem";
+            this.releasedAfter2000ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.releasedAfter2000ToolStripMenuItem.Text = "Released after 2000";
+            this.releasedAfter2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedAfter2000ToolStripMenuItem_Click);
             // 
             // BookListForm
             // 
@@ -272,5 +310,9 @@
         private System.Windows.Forms.ToolStripMenuItem addContextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editContextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteContextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem releasedBefore2000ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem releasedAfter2000ToolStripMenuItem;
     }
 }

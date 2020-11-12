@@ -52,8 +52,11 @@ namespace BookListWF
 
         private void Document_DeleteBookEvent(Book book)
         {
+            //Console.WriteLine("Trying to delete");
+            
             ListViewItem item = new ListViewItem();
             item.Tag = book;
+            UpdateItem(item);
             bookListView.Items.Remove(item);
         }
 
@@ -98,6 +101,7 @@ namespace BookListWF
             if (bookListView.SelectedItems.Count == 1)
             {
                 Book book = (Book)bookListView.SelectedItems[0].Tag;
+                //bookListView.Items.Remove(bookListView.SelectedItems[0]);
                 Document.DeleteBook(book);
             }
         }
@@ -146,6 +150,27 @@ namespace BookListWF
                 if (result == DialogResult.No)
                     e.Cancel = true;
             }
+        }
+
+        private void releasedBefore2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            releasedBefore2000ToolStripMenuItem.Checked = true;
+            allToolStripMenuItem.Checked = false;
+            releasedAfter2000ToolStripMenuItem.Checked = false;
+        }
+
+        private void releasedAfter2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            releasedBefore2000ToolStripMenuItem.Checked = false;
+            allToolStripMenuItem.Checked = false;
+            releasedAfter2000ToolStripMenuItem.Checked = true;
+        }
+
+        private void allToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            releasedBefore2000ToolStripMenuItem.Checked = false;
+            allToolStripMenuItem.Checked = true;
+            releasedAfter2000ToolStripMenuItem.Checked = false;
         }
     }
 }

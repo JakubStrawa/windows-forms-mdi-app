@@ -22,7 +22,7 @@ namespace BookListWF
 
         private void newViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookListForm bookListForm = new BookListForm();
+            BookListForm bookListForm = new BookListForm(mainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
         }

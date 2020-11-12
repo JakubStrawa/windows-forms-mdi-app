@@ -44,7 +44,7 @@
             this.windowToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(721, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(751, 24);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "mainMenuStrip";
             // 
@@ -62,7 +62,7 @@
             this.newViewToolStripButton});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
-            this.mainToolStrip.Size = new System.Drawing.Size(721, 25);
+            this.mainToolStrip.Size = new System.Drawing.Size(751, 25);
             this.mainToolStrip.TabIndex = 2;
             this.mainToolStrip.Text = "mainToolStrip";
             // 
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 450);
+            this.ClientSize = new System.Drawing.Size(751, 504);
             this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.mainMenuStrip);
             this.IsMdiContainer = true;
@@ -103,12 +103,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip mainMenuStrip;
-        private System.Windows.Forms.ToolStrip mainToolStrip;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton newViewToolStripButton;
+        public System.Windows.Forms.MenuStrip mainMenuStrip;
+        public System.Windows.Forms.ToolStrip mainToolStrip;
     }
 }
 

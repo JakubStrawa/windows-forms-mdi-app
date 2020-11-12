@@ -12,14 +12,14 @@ namespace BookListWF
 
         public event Action<Book> AddBookEvent;
 
-        public void AddStudent(Book book)
+        public void AddBook(Book book)
         {
             books.Add(book);
 
             AddBookEvent?.Invoke(book);
         }
 
-        public void UpdateStudent(Book book)
+        public void UpdateBook(Book book)
         {
             throw new NotImplementedException();
         }

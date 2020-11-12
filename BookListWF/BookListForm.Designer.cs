@@ -176,7 +176,7 @@
             this.deleteToolStripButton});
             this.childToolStrip.Location = new System.Drawing.Point(3, 24);
             this.childToolStrip.Name = "childToolStrip";
-            this.childToolStrip.Size = new System.Drawing.Size(168, 25);
+            this.childToolStrip.Size = new System.Drawing.Size(199, 25);
             this.childToolStrip.TabIndex = 1;
             // 
             // addToolStripButton

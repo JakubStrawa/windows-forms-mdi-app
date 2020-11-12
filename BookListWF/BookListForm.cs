@@ -55,12 +55,13 @@ namespace BookListWF
 
         private void Document_DeleteBookEvent(Book book)
         {
-            //Console.WriteLine("Trying to delete");
-            
-            ListViewItem item = new ListViewItem();
-            item.Tag = book;
-            UpdateItem(item);
-            bookListView.Items.Remove(item);
+            foreach (ListViewItem i in bookListView.Items)
+            {
+                if (ReferenceEquals(i.Tag, book))
+                {
+                    bookListView.Items.Remove(i);
+                }
+            }
             countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
@@ -108,12 +109,13 @@ namespace BookListWF
                 //Console.WriteLine(book.Title + book.Author + book.Genre);
                 //bookListView.Items.Remove(bookListView.SelectedItems[0]);
                 Document.DeleteBook(book);
+
             }
         }
 
         private void UpdateItem(ListViewItem item)
         {
-            //function called when new item need to be created
+            //function called when new item needs to be created
             Book book = (Book)item.Tag;
             while (item.SubItems.Count < 4)
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
@@ -166,16 +168,26 @@ namespace BookListWF
 
         private void releasedBefore2000ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (releasedAfter2000ToolStripMenuItem.Checked)
+            {
+                bookListView.Clear();
+            }
             releasedBefore2000ToolStripMenuItem.Checked = true;
             allToolStripMenuItem.Checked = false;
             releasedAfter2000ToolStripMenuItem.Checked = false;
+            UpdateItems();
         }
 
         private void releasedAfter2000ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (releasedBefore2000ToolStripMenuItem.Checked)
+            {
+                bookListView.Clear();
+            }
             releasedBefore2000ToolStripMenuItem.Checked = false;
             allToolStripMenuItem.Checked = false;
             releasedAfter2000ToolStripMenuItem.Checked = true;
+            UpdateItems();
         }
 
         private void allToolStripMenuItem_Click(object sender, EventArgs e)

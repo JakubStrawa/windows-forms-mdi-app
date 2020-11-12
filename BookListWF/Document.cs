@@ -31,6 +31,10 @@ namespace BookListWF
                     b.ReleaseDate = book.ReleaseDate;
                     b.Genre = book.Genre;
                 }
+            foreach (Book b in books)
+            {
+                Console.WriteLine(b.Title + b.Author + b.Genre);
+            }
             UpdateBookEvent?.Invoke(book);
         }
 

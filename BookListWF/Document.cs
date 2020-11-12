@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace BookListWF
 {
-    class Document
+    public class Document
     {
+        public List<Book> books = new List<Book>();
+
+        public event Action<Book> AddBookEvent;
+
+        public void AddStudent(Book book)
+        {
+            books.Add(book);
+
+            AddBookEvent?.Invoke(book);
+        }
+
+        public void UpdateStudent(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

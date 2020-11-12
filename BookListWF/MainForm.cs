@@ -12,9 +12,12 @@ namespace BookListWF
 {
     public partial class MainForm : Form
     {
+        Document mainDocument = new Document();
+
         public MainForm()
         {
             InitializeComponent();
+            IsMdiContainer = true;
         }
     }
 }

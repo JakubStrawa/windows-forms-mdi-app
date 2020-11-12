@@ -19,5 +19,12 @@ namespace BookListWF
             InitializeComponent();
             IsMdiContainer = true;
         }
+
+        private void newViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookListForm bookListForm = new BookListForm();
+            bookListForm.MdiParent = this;
+            bookListForm.Show();
+        }
     }
 }

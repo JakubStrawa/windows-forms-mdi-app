@@ -55,8 +55,13 @@ namespace BookListWF
                     {
                         i.Tag = book;
                         UpdateItem(i);
+                        return;
                     }
                 }
+                ListViewItem item = new ListViewItem();
+                item.Tag = book;
+                UpdateItem(item);
+                bookListView.Items.Add(item);
             }
             else
             {
@@ -64,9 +69,10 @@ namespace BookListWF
                     if (ReferenceEquals(i.Tag, book))
                     {
                         bookListView.Items.Remove(i);
-                        countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
+                        break;
                     }
             }
+            countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
         private void Document_DeleteBookEvent(Book book)
@@ -190,24 +196,55 @@ namespace BookListWF
         {
             if (releasedAfter2000ToolStripMenuItem.Checked)
             {
-                bookListView.Clear();
+                bookListView.Items.Clear();
+                releasedBefore2000ToolStripMenuItem.Checked = true;
+                allToolStripMenuItem.Checked = false;
+                releasedAfter2000ToolStripMenuItem.Checked = false;
+                UpdateItems();
             }
-            releasedBefore2000ToolStripMenuItem.Checked = true;
-            allToolStripMenuItem.Checked = false;
-            releasedAfter2000ToolStripMenuItem.Checked = false;
-            UpdateItems();
+            else
+            {
+                releasedBefore2000ToolStripMenuItem.Checked = true;
+                allToolStripMenuItem.Checked = false;
+                releasedAfter2000ToolStripMenuItem.Checked = false;
+                foreach (ListViewItem i in bookListView.Items)
+                {
+                    Book book = (Book)i.Tag;
+                    if (!shouldShowBook(book))
+                    {
+                        bookListView.Items.Remove(i);
+                    }
+                }
+                countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
+            }
         }
 
         private void releasedAfter2000ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (releasedBefore2000ToolStripMenuItem.Checked)
             {
-                bookListView.Clear();
+                bookListView.Items.Clear();
+                releasedBefore2000ToolStripMenuItem.Checked = false;
+                allToolStripMenuItem.Checked = false;
+                releasedAfter2000ToolStripMenuItem.Checked = true;
+                UpdateItems();
             }
-            releasedBefore2000ToolStripMenuItem.Checked = false;
-            allToolStripMenuItem.Checked = false;
-            releasedAfter2000ToolStripMenuItem.Checked = true;
-            UpdateItems();
+            else
+            {
+                releasedBefore2000ToolStripMenuItem.Checked = false;
+                allToolStripMenuItem.Checked = false;
+                releasedAfter2000ToolStripMenuItem.Checked = true;
+                foreach (ListViewItem i in bookListView.Items)
+                {
+                    Book book = (Book)i.Tag;
+                    if (!shouldShowBook(book))
+                    {
+                        bookListView.Items.Remove(i);
+                    }
+                }
+                countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
+            }
+            
         }
 
         private void allToolStripMenuItem_Click(object sender, EventArgs e)

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookListForm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.childStatusStrip = new System.Windows.Forms.StatusStrip();
             this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -48,13 +47,13 @@
             this.releasedBefore2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releasedAfter2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.childToolStrip = new System.Windows.Forms.ToolStrip();
-            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.childContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteContextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -229,33 +228,6 @@
             this.childToolStrip.Size = new System.Drawing.Size(199, 25);
             this.childToolStrip.TabIndex = 1;
             // 
-            // addToolStripButton
-            // 
-            this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
-            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addToolStripButton.Name = "addToolStripButton";
-            this.addToolStripButton.Size = new System.Drawing.Size(49, 22);
-            this.addToolStripButton.Text = "Add";
-            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
-            // 
-            // editToolStripButton
-            // 
-            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
-            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editToolStripButton.Name = "editToolStripButton";
-            this.editToolStripButton.Size = new System.Drawing.Size(47, 22);
-            this.editToolStripButton.Text = "Edit";
-            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // deleteToolStripButton
-            // 
-            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
-            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(60, 22);
-            this.deleteToolStripButton.Text = "Delete";
-            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
             // childContextMenuStrip
             // 
             this.childContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -285,6 +257,33 @@
             this.deleteContextToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteContextToolStripMenuItem.Text = "Delete";
             this.deleteContextToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // addToolStripButton
+            // 
+            this.addToolStripButton.Image = global::BookListWF.Properties.Resources.plus;
+            this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addToolStripButton.Name = "addToolStripButton";
+            this.addToolStripButton.Size = new System.Drawing.Size(49, 22);
+            this.addToolStripButton.Text = "Add";
+            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // editToolStripButton
+            // 
+            this.editToolStripButton.Image = global::BookListWF.Properties.Resources.wrench;
+            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editToolStripButton.Name = "editToolStripButton";
+            this.editToolStripButton.Size = new System.Drawing.Size(47, 22);
+            this.editToolStripButton.Text = "Edit";
+            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripButton
+            // 
+            this.deleteToolStripButton.Image = global::BookListWF.Properties.Resources.minus;
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(60, 22);
+            this.deleteToolStripButton.Text = "Delete";
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // BookListForm
             // 

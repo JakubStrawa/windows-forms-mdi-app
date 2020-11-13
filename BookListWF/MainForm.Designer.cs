@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +61,7 @@
             // newViewToolStripMenuItem
             // 
             this.newViewToolStripMenuItem.Name = "newViewToolStripMenuItem";
-            this.newViewToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.newViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newViewToolStripMenuItem.Text = "New View";
             this.newViewToolStripMenuItem.Click += new System.EventHandler(this.newViewToolStripMenuItem_Click);
             // 
@@ -78,7 +77,7 @@
             // 
             // newViewToolStripButton
             // 
-            this.newViewToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newViewToolStripButton.Image")));
+            this.newViewToolStripButton.Image = global::BookListWF.Properties.Resources.window;
             this.newViewToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newViewToolStripButton.Name = "newViewToolStripButton";
             this.newViewToolStripButton.Size = new System.Drawing.Size(79, 22);

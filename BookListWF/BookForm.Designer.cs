@@ -221,7 +221,7 @@
             // genreControl
             // 
             this.genreControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreControl.Genre = BookListWF.Genres.Poetry;
+            this.genreControl.Genre = BookListWF.Genres.DetectiveStory;
             this.genreControl.Location = new System.Drawing.Point(106, 180);
             this.genreControl.Name = "genreControl";
             this.tableLayoutPanel3.SetRowSpan(this.genreControl, 2);
@@ -266,6 +266,6 @@
         private System.Windows.Forms.DateTimePicker releaseDateTimePicker;
         private System.Windows.Forms.ErrorProvider titleErrorProvider;
         private System.Windows.Forms.ErrorProvider authorErrorProvider;
-        private GenreControl genreControl;
+        public GenreControl genreControl;
     }
 }

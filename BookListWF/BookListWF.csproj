@@ -60,6 +60,7 @@
       <DependentUpon>BookListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Document.cs" />
+    <Compile Include="GenreControl.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,10 +111,16 @@
     <None Include="Resources\minus.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\screen.png" />
+    <None Include="Resources\window.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\window.png" />
+    <None Include="Resources\poetry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fantasy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\detective.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

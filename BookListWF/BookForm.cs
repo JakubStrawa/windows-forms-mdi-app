@@ -33,6 +33,7 @@ namespace BookListWF
         public Genres BookGenre
         {
             get { return (Genres)genreComboBox.SelectedIndex; }
+            //get { return GenrePictureControl.Genre; }
         }
 
         public BookForm(Book book, List<Book> books)

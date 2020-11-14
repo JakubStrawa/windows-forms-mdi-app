@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.OKButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.releaseDateLabel = new System.Windows.Forms.Label();
@@ -44,11 +44,13 @@
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.titleErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.authorErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.genreControl1 = new BookListWF.GenreControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,34 +88,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 89);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Controls.Add(this.titleLabel, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.authorLabel, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.releaseDateLabel, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.genreLabel, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.titleTextBox, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.authorTextBox, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.releaseDateTimePicker, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.genreComboBox, 2, 4);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(419, 279);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
             // OKButton
             // 
             this.OKButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -136,6 +110,35 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.Controls.Add(this.titleLabel, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.authorLabel, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.releaseDateLabel, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.genreLabel, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.titleTextBox, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.authorTextBox, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.releaseDateTimePicker, 2, 3);
+            this.tableLayoutPanel3.Controls.Add(this.genreComboBox, 2, 4);
+            this.tableLayoutPanel3.Controls.Add(this.genreControl1, 2, 5);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 6;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(419, 279);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
             // titleLabel
             // 
@@ -230,6 +233,16 @@
             // 
             this.authorErrorProvider.ContainerControl = this;
             // 
+            // genreControl1
+            // 
+            this.genreControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreControl1.Genre = BookListWF.Genres.Poetry;
+            this.genreControl1.Location = new System.Drawing.Point(106, 230);
+            this.genreControl1.Name = "genreControl1";
+            this.genreControl1.Size = new System.Drawing.Size(266, 46);
+            this.genreControl1.TabIndex = 8;
+            this.genreControl1.TabStop = false;
+            // 
             // BookForm
             // 
             this.AcceptButton = this.OKButton;
@@ -247,12 +260,12 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button OKButton;
@@ -268,5 +281,6 @@
         private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.ErrorProvider titleErrorProvider;
         private System.Windows.Forms.ErrorProvider authorErrorProvider;
+        private GenreControl genreControl1;
     }
 }

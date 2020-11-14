@@ -41,15 +41,15 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.releaseDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.genreControl = new BookListWF.GenreControl();
             this.titleErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.authorErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.genreControl = new BookListWF.GenreControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -210,17 +210,6 @@
             this.releaseDateTimePicker.Size = new System.Drawing.Size(266, 20);
             this.releaseDateTimePicker.TabIndex = 6;
             // 
-            // genreControl
-            // 
-            this.genreControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreControl.Genre = BookListWF.Genres.Fantasy;
-            this.genreControl.Location = new System.Drawing.Point(106, 230);
-            this.genreControl.Name = "genreControl";
-            this.genreControl.Size = new System.Drawing.Size(266, 46);
-            this.genreControl.TabIndex = 8;
-            this.genreControl.TabStop = false;
-            this.genreControl.Click += new System.EventHandler(this.genreControl_Click);
-            // 
             // titleErrorProvider
             // 
             this.titleErrorProvider.ContainerControl = this;
@@ -228,6 +217,17 @@
             // authorErrorProvider
             // 
             this.authorErrorProvider.ContainerControl = this;
+            // 
+            // genreControl
+            // 
+            this.genreControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreControl.Genre = BookListWF.Genres.Poetry;
+            this.genreControl.Location = new System.Drawing.Point(106, 180);
+            this.genreControl.Name = "genreControl";
+            this.tableLayoutPanel3.SetRowSpan(this.genreControl, 2);
+            this.genreControl.Size = new System.Drawing.Size(266, 96);
+            this.genreControl.TabIndex = 7;
+            this.genreControl.TabStop = false;
             // 
             // BookForm
             // 
@@ -244,9 +244,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).EndInit();
             this.ResumeLayout(false);
 
         }

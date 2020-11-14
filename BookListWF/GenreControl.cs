@@ -13,14 +13,14 @@ namespace BookListWF
 {
     public class GenreEditor : System.Drawing.Design.UITypeEditor
     {
-        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+        //[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
         public GenreEditor()
         {
         }
 
         public override System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
         {
-            return UITypeEditorEditStyle.DropDown;
+            return UITypeEditorEditStyle.Modal;
         }
 
         public override object EditValue(System.ComponentModel.ITypeDescriptorContext context, System.IServiceProvider provider, object value)
@@ -47,21 +47,29 @@ namespace BookListWF
 
         public GenreControl()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.genre = Genres.Poetry;
             Genre = genre;
             Image = null;
             ChangeCurrentImage(false);
+            //this.Invalidate();
         }
 
         public GenreControl(Genres genre)
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.genre = genre;
             Genre = genre;
             Image = null;
             ChangeCurrentImage(false);
-            this.Refresh();
+            //this.Invalidate();
         }
 
+        public void ChangeImage()
+        {
+            ChangeCurrentImage(false);
+            this.Refresh();
+        }
 
         private void ChangeCurrentImage(bool shouldChangeGenre)
         {
@@ -89,7 +97,9 @@ namespace BookListWF
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            ChangeCurrentImage(false);
+            //ChangeCurrentImage(false);
+            base.OnPaint(pe);
+            
             pe.Graphics.DrawImage(Image, 0, 0, this.Width, this.Height);
         }
 

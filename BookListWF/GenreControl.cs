@@ -43,9 +43,12 @@ namespace BookListWF
         private Genres genre;
         private Image Image;
 
+        public event Action<Genres> ChangeGenreEvent;
+
         public GenreControl()
         {
-            this.genre = Genres.Fantasy;
+            this.genre = Genres.Poetry;
+            Genre = genre;
             Image = null;
             ChangeCurrentImage(false);
         }
@@ -53,17 +56,22 @@ namespace BookListWF
         public GenreControl(Genres genre)
         {
             this.genre = genre;
+            Genre = genre;
             Image = null;
             ChangeCurrentImage(false);
+            this.Refresh();
         }
+
 
         private void ChangeCurrentImage(bool shouldChangeGenre)
         {
             int num = (int)genre;
+            Genre = genre;
             if (shouldChangeGenre)
             {
                 num = (++num) % 3;
                 genre = (Genres)num;
+                Genre = this.genre;
             }
             switch (num)
             {
@@ -81,15 +89,14 @@ namespace BookListWF
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            base.OnPaint(pe);
-
+            ChangeCurrentImage(false);
             pe.Graphics.DrawImage(Image, 0, 0, this.Width, this.Height);
         }
 
         protected override void OnClick(EventArgs e)
         {
-            //base.OnClick(e);
             ChangeCurrentImage(true);
+            ChangeGenreEvent?.Invoke(genre);
             this.Refresh();
         }
     }

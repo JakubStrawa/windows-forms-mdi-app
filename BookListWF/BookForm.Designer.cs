@@ -41,16 +41,15 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.releaseDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.genreComboBox = new System.Windows.Forms.ComboBox();
+            this.genreControl = new BookListWF.GenreControl();
             this.titleErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.authorErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.genreControl1 = new BookListWF.GenreControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genreControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -125,8 +124,7 @@
             this.tableLayoutPanel3.Controls.Add(this.titleTextBox, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.authorTextBox, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.releaseDateTimePicker, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.genreComboBox, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.genreControl1, 2, 5);
+            this.tableLayoutPanel3.Controls.Add(this.genreControl, 2, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -212,18 +210,16 @@
             this.releaseDateTimePicker.Size = new System.Drawing.Size(266, 20);
             this.releaseDateTimePicker.TabIndex = 6;
             // 
-            // genreComboBox
+            // genreControl
             // 
-            this.genreComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Items.AddRange(new object[] {
-            "Poetry",
-            "Fantasy",
-            "Detective Story"});
-            this.genreComboBox.Location = new System.Drawing.Point(106, 191);
-            this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(266, 21);
-            this.genreComboBox.TabIndex = 7;
+            this.genreControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreControl.Genre = BookListWF.Genres.Fantasy;
+            this.genreControl.Location = new System.Drawing.Point(106, 230);
+            this.genreControl.Name = "genreControl";
+            this.genreControl.Size = new System.Drawing.Size(266, 46);
+            this.genreControl.TabIndex = 8;
+            this.genreControl.TabStop = false;
+            this.genreControl.Click += new System.EventHandler(this.genreControl_Click);
             // 
             // titleErrorProvider
             // 
@@ -232,16 +228,6 @@
             // authorErrorProvider
             // 
             this.authorErrorProvider.ContainerControl = this;
-            // 
-            // genreControl1
-            // 
-            this.genreControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreControl1.Genre = BookListWF.Genres.Poetry;
-            this.genreControl1.Location = new System.Drawing.Point(106, 230);
-            this.genreControl1.Name = "genreControl1";
-            this.genreControl1.Size = new System.Drawing.Size(266, 46);
-            this.genreControl1.TabIndex = 8;
-            this.genreControl1.TabStop = false;
             // 
             // BookForm
             // 
@@ -258,9 +244,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.genreControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authorErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genreControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,9 +264,8 @@
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.DateTimePicker releaseDateTimePicker;
-        private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.ErrorProvider titleErrorProvider;
         private System.Windows.Forms.ErrorProvider authorErrorProvider;
-        private GenreControl genreControl1;
+        private GenreControl genreControl;
     }
 }

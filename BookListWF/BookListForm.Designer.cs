@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookListForm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.childStatusStrip = new System.Windows.Forms.StatusStrip();
             this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -114,6 +116,8 @@
             this.bookListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookListView.FullRowSelect = true;
             this.bookListView.HideSelection = false;
+            this.bookListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.bookListView.Location = new System.Drawing.Point(0, 0);
             this.bookListView.Name = "bookListView";
             this.bookListView.Size = new System.Drawing.Size(540, 307);
@@ -124,21 +128,25 @@
             // titleColumnHeader
             // 
             this.titleColumnHeader.Text = "Title";
+            this.titleColumnHeader.Width = 79;
             // 
             // authorColumnHeader
             // 
             this.authorColumnHeader.Text = "Author";
             this.authorColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.authorColumnHeader.Width = 81;
             // 
             // releaseDateColumnHeader
             // 
             this.releaseDateColumnHeader.Text = "Release Date";
             this.releaseDateColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.releaseDateColumnHeader.Width = 92;
             // 
             // genreColumnHeader
             // 
             this.genreColumnHeader.Text = "Genre";
             this.genreColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.genreColumnHeader.Width = 82;
             // 
             // childMenuStrip
             // 
@@ -225,7 +233,7 @@
             this.deleteToolStripButton});
             this.childToolStrip.Location = new System.Drawing.Point(3, 24);
             this.childToolStrip.Name = "childToolStrip";
-            this.childToolStrip.Size = new System.Drawing.Size(199, 25);
+            this.childToolStrip.Size = new System.Drawing.Size(168, 25);
             this.childToolStrip.TabIndex = 1;
             // 
             // addToolStripButton
@@ -292,6 +300,7 @@
             this.ClientSize = new System.Drawing.Size(540, 378);
             this.ContextMenuStrip = this.childContextMenuStrip;
             this.Controls.Add(this.toolStripContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.childMenuStrip;
             this.Name = "BookListForm";
             this.Text = "Book List";

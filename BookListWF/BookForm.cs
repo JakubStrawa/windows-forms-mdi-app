@@ -50,6 +50,7 @@ namespace BookListWF
                 authorTextBox.Text = book.Author;
                 releaseDateTimePicker.Value = book.ReleaseDate;
                 genreControl.Genre = book.Genre;
+                currentGenreLabel.Text = book.Genre.ToString();
                 genreControl.ChangeImage();
             }
             else
@@ -58,6 +59,7 @@ namespace BookListWF
                 authorTextBox.Text = "J. K. Rowling";
                 releaseDateTimePicker.Value = new DateTime(1997, 6, 26);
                 genreControl.Genre = Genres.Fantasy;
+                currentGenreLabel.Text = Genres.Fantasy.ToString();
                 genreControl.ChangeImage();
             }
             genreControl.ChangeGenreEvent += GenreControl_ChangeGenreEvent;
@@ -66,6 +68,7 @@ namespace BookListWF
         private void GenreControl_ChangeGenreEvent(Genres genre)
         {
             genreControl.Genre = genre;
+            currentGenreLabel.Text = genre.ToString();
             genreControl.ChangeImage();
         }
 
@@ -119,6 +122,11 @@ namespace BookListWF
         private void authorTextBox_Validated(object sender, EventArgs e)
         {
             authorErrorProvider.SetError(authorTextBox, "");
+        }
+
+        private void BookForm_ResizeEnd(object sender, EventArgs e)
+        {
+            genreControl.ChangeImage();
         }
     }
 }

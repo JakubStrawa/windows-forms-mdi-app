@@ -81,22 +81,14 @@ namespace BookListWF
 
         public GenreControl() : this(0)
         {
-            //this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            //this.genre = Genres.DetectiveStory;
-            //Genre = genre;
-            //Image = null;
-            //ChangeCurrentImage(false);
-            //this.Refresh();
         }
 
         public GenreControl(Genres genre)
         {
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.genre = genre;
-            //Genre = genre;
             Image = null;
             ChangeCurrentImage(false);
-            //this.Invalidate();
         }
 
         public void ChangeImage()
@@ -108,32 +100,28 @@ namespace BookListWF
         private void ChangeCurrentImage(bool shouldChangeGenre)
         {
             int num = (int)genre;
-            //genre = Genre;
             if (shouldChangeGenre)
             {
                 num = (++num) % 3;
                 genre = (Genres)num;
-                //Genre = this.genre;
             }
             switch (num)
             {
+                case 0:
+                    this.Image = global::BookListWF.Properties.Resources.poetry;
+                    break;
                 case 1:
                     this.Image = global::BookListWF.Properties.Resources.fantasy;
                     break;
                 case 2:
                     this.Image = global::BookListWF.Properties.Resources.detective;
                     break;
-                case 0:
-                    this.Image = global::BookListWF.Properties.Resources.poetry;
-                    break;
             }
         }
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            //ChangeCurrentImage(false);
             base.OnPaint(pe);
-            
             pe.Graphics.DrawImage(Image, 0, 0, this.Width, this.Height);
         }
 

@@ -96,13 +96,7 @@ namespace BookListWF
             if (bookForm.ShowDialog() == DialogResult.OK)
             {
                 Book newBook = new Book(bookForm.BookTitle, bookForm.BookAuthor, bookForm.BookReleaseDate, bookForm.BookGenre);
-
                 Document.AddBook(newBook);
-
-                //ListViewItem item = new ListViewItem();
-                //item.Tag = newStudent;
-                //UpdateItem(item);
-                //studentsListView.Items.Add(item);
             }
         }
 
@@ -120,8 +114,6 @@ namespace BookListWF
                     book.Genre = bookForm.BookGenre;
 
                     Document.UpdateBook(book);
-
-                    //UpdateItem(studentsListView.SelectedItems[0]);
                 }
             }
         }
@@ -131,16 +123,13 @@ namespace BookListWF
             if (bookListView.SelectedItems.Count == 1)
             {
                 Book book = (Book)bookListView.SelectedItems[0].Tag;
-                //Console.WriteLine(book.Title + book.Author + book.Genre);
-                //bookListView.Items.Remove(bookListView.SelectedItems[0]);
                 Document.DeleteBook(book);
-
             }
         }
 
         private void UpdateItem(ListViewItem item)
         {
-            //function called when new item needs to be created
+            //function called when new item needs to be updated
             Book book = (Book)item.Tag;
             while (item.SubItems.Count < 4)
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
@@ -154,7 +143,6 @@ namespace BookListWF
         {
             //only called when new Form is created
             //function creates new listView content from current version of main document
-            //bookListView.Items.Clear();
             foreach (Book book in Document.books)
                 if (shouldShowBook(book) == true)
                 {
@@ -192,21 +180,17 @@ namespace BookListWF
             }
         }
 
-        private void releasedBefore2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void releasedBefore2000_Click(object sender, EventArgs e)
         {
             if (releasedAfter2000ToolStripMenuItem.Checked)
             {
                 bookListView.Items.Clear();
-                releasedBefore2000ToolStripMenuItem.Checked = true;
-                allToolStripMenuItem.Checked = false;
-                releasedAfter2000ToolStripMenuItem.Checked = false;
+                updateCheckedItem(1);
                 UpdateItems();
             }
             else
             {
-                releasedBefore2000ToolStripMenuItem.Checked = true;
-                allToolStripMenuItem.Checked = false;
-                releasedAfter2000ToolStripMenuItem.Checked = false;
+                updateCheckedItem(1);
                 foreach (ListViewItem i in bookListView.Items)
                 {
                     Book book = (Book)i.Tag;
@@ -219,21 +203,17 @@ namespace BookListWF
             }
         }
 
-        private void releasedAfter2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void releasedAfter2000_Click(object sender, EventArgs e)
         {
             if (releasedBefore2000ToolStripMenuItem.Checked)
             {
                 bookListView.Items.Clear();
-                releasedBefore2000ToolStripMenuItem.Checked = false;
-                allToolStripMenuItem.Checked = false;
-                releasedAfter2000ToolStripMenuItem.Checked = true;
+                updateCheckedItem(2);
                 UpdateItems();
             }
             else
             {
-                releasedBefore2000ToolStripMenuItem.Checked = false;
-                allToolStripMenuItem.Checked = false;
-                releasedAfter2000ToolStripMenuItem.Checked = true;
+                updateCheckedItem(2);
                 foreach (ListViewItem i in bookListView.Items)
                 {
                     Book book = (Book)i.Tag;
@@ -247,29 +227,20 @@ namespace BookListWF
             
         }
 
-        private void allToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showAll_Click(object sender, EventArgs e)
         {
             DateTime date2000 = new DateTime(2000, 1, 1);
-            int previousFilter = 0;
-            if (releasedBefore2000ToolStripMenuItem.Checked == true)
-                previousFilter = 1;
-            else if (releasedAfter2000ToolStripMenuItem.Checked == true)
-                previousFilter = 2;
-
-            releasedBefore2000ToolStripMenuItem.Checked = false;
-            allToolStripMenuItem.Checked = true;
-            releasedAfter2000ToolStripMenuItem.Checked = false;
-
+            
             foreach (Book book in Document.books)
             {
-                if (previousFilter == 1 && DateTime.Compare(book.ReleaseDate, date2000) >= 0)
+                if (releasedBefore2000ToolStripMenuItem.Checked && DateTime.Compare(book.ReleaseDate, date2000) >= 0)
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = book;
                     UpdateItem(item);
                     bookListView.Items.Add(item);
                 }
-                else if (previousFilter == 2 && DateTime.Compare(book.ReleaseDate, date2000) < 0)
+                else if (releasedAfter2000ToolStripMenuItem.Checked && DateTime.Compare(book.ReleaseDate, date2000) < 0)
                 {
                     ListViewItem item = new ListViewItem();
                     item.Tag = book;
@@ -277,6 +248,7 @@ namespace BookListWF
                     bookListView.Items.Add(item);
                 }
             }
+            updateCheckedItem(0);
             countToolStripStatusLabel.Text = bookListView.Items.Count.ToString();
         }
 
@@ -295,6 +267,28 @@ namespace BookListWF
             else
             {
                 return true;
+            }
+        }
+
+        private void updateCheckedItem(int num)
+        {
+            if (num >= 0 && num < 3)
+            {
+                releasedBefore2000ToolStripMenuItem.Checked = false;
+                allToolStripMenuItem.Checked = false;
+                releasedAfter2000ToolStripMenuItem.Checked = false;
+                switch (num)
+                {
+                    case 0:
+                        allToolStripMenuItem.Checked = true;
+                        break;
+                    case 1:
+                        releasedBefore2000ToolStripMenuItem.Checked = true;
+                        break;
+                    case 2:
+                        releasedAfter2000ToolStripMenuItem.Checked = true;
+                        break;
+                }
             }
         }
     }

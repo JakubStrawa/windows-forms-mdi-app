@@ -208,21 +208,21 @@
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
             this.allToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.allToolStripMenuItem.Text = "All";
-            this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
+            this.allToolStripMenuItem.Click += new System.EventHandler(this.showAll_Click);
             // 
             // releasedBefore2000ToolStripMenuItem
             // 
             this.releasedBefore2000ToolStripMenuItem.Name = "releasedBefore2000ToolStripMenuItem";
             this.releasedBefore2000ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.releasedBefore2000ToolStripMenuItem.Text = "Released before 2000";
-            this.releasedBefore2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedBefore2000ToolStripMenuItem_Click);
+            this.releasedBefore2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedBefore2000_Click);
             // 
             // releasedAfter2000ToolStripMenuItem
             // 
             this.releasedAfter2000ToolStripMenuItem.Name = "releasedAfter2000ToolStripMenuItem";
             this.releasedAfter2000ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.releasedAfter2000ToolStripMenuItem.Text = "Released after 2000";
-            this.releasedAfter2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedAfter2000ToolStripMenuItem_Click);
+            this.releasedAfter2000ToolStripMenuItem.Click += new System.EventHandler(this.releasedAfter2000_Click);
             // 
             // childToolStrip
             // 

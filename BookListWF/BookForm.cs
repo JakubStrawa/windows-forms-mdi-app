@@ -32,7 +32,7 @@ namespace BookListWF
 
         public Genres BookGenre
         {
-            get { return (Genres)genreComboBox.SelectedIndex; }
+            get { return genreControl.Genre; }
         }
 
         public BookForm(Book book, List<Book> books)
@@ -49,15 +49,27 @@ namespace BookListWF
                 titleTextBox.Text = book.Title;
                 authorTextBox.Text = book.Author;
                 releaseDateTimePicker.Value = book.ReleaseDate;
-                genreComboBox.SelectedIndex = (int)book.Genre;
+                genreControl.Genre = book.Genre;
+                currentGenreLabel.Text = book.Genre.ToString();
+                genreControl.ChangeImage();
             }
             else
             {
                 titleTextBox.Text = "Harry Potter";
                 authorTextBox.Text = "J. K. Rowling";
                 releaseDateTimePicker.Value = new DateTime(1997, 6, 26);
-                genreComboBox.SelectedIndex = (int)Genres.Fantasy;
+                genreControl.Genre = Genres.Fantasy;
+                currentGenreLabel.Text = Genres.Fantasy.ToString();
+                genreControl.ChangeImage();
             }
+            genreControl.ChangeGenreEvent += GenreControl_ChangeGenreEvent;
+        }
+
+        private void GenreControl_ChangeGenreEvent(Genres genre)
+        {
+            genreControl.Genre = genre;
+            currentGenreLabel.Text = genre.ToString();
+            genreControl.ChangeImage();
         }
 
         private void OKButton_Click(object sender, EventArgs e)
@@ -110,6 +122,11 @@ namespace BookListWF
         private void authorTextBox_Validated(object sender, EventArgs e)
         {
             authorErrorProvider.SetError(authorTextBox, "");
+        }
+
+        private void BookForm_ResizeEnd(object sender, EventArgs e)
+        {
+            genreControl.ChangeImage();
         }
     }
 }

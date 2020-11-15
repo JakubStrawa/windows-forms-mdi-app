@@ -18,6 +18,9 @@ namespace BookListWF
         {
             InitializeComponent();
             IsMdiContainer = true;
+            BookListForm bookListForm = new BookListForm(MainDocument);
+            bookListForm.MdiParent = this;
+            bookListForm.Show();
         }
 
         private void newViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -25,8 +28,12 @@ namespace BookListWF
             BookListForm bookListForm = new BookListForm(MainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
-            LayoutMdi(MdiLayout.TileVertical);
+            LayoutMdi(MdiLayout.TileHorizontal);
         }
 
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
     }
 }

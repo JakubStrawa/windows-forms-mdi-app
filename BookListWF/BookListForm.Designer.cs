@@ -76,11 +76,11 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.bookListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(540, 307);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(534, 290);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(540, 378);
+            this.toolStripContainer1.Size = new System.Drawing.Size(534, 361);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -96,12 +96,11 @@
             this.countToolStripStatusLabel});
             this.childStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.childStatusStrip.Name = "childStatusStrip";
-            this.childStatusStrip.Size = new System.Drawing.Size(540, 22);
+            this.childStatusStrip.Size = new System.Drawing.Size(534, 22);
             this.childStatusStrip.TabIndex = 0;
             // 
             // countToolStripStatusLabel
             // 
-            this.countToolStripStatusLabel.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.countToolStripStatusLabel.Name = "countToolStripStatusLabel";
             this.countToolStripStatusLabel.Size = new System.Drawing.Size(13, 17);
             this.countToolStripStatusLabel.Text = "0";
@@ -120,7 +119,7 @@
             listViewItem1});
             this.bookListView.Location = new System.Drawing.Point(0, 0);
             this.bookListView.Name = "bookListView";
-            this.bookListView.Size = new System.Drawing.Size(540, 307);
+            this.bookListView.Size = new System.Drawing.Size(534, 290);
             this.bookListView.TabIndex = 0;
             this.bookListView.UseCompatibleStateImageBehavior = false;
             this.bookListView.View = System.Windows.Forms.View.Details;
@@ -156,7 +155,7 @@
             this.showToolStripMenuItem});
             this.childMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.childMenuStrip.Name = "childMenuStrip";
-            this.childMenuStrip.Size = new System.Drawing.Size(540, 24);
+            this.childMenuStrip.Size = new System.Drawing.Size(534, 24);
             this.childMenuStrip.TabIndex = 0;
             this.childMenuStrip.Text = "childMenuStrip";
             // 
@@ -297,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 378);
+            this.ClientSize = new System.Drawing.Size(534, 361);
             this.ContextMenuStrip = this.childContextMenuStrip;
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

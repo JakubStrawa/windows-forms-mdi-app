@@ -157,26 +157,20 @@ namespace BookListWF
         private void BookListForm_Activated(object sender, EventArgs e)
         {
             ToolStripManager.Merge(childToolStrip, ((MainForm)MdiParent).mainToolStrip);
-            this.childStatusStrip.Items.RemoveAt(0);
-            StatusStrip dest = (StatusStrip)this.MdiParent.Controls["mainStatusStrip"];
-            dest.Items.Add(countToolStripStatusLabel);
+            ToolStripManager.Merge(childStatusStrip, ((MainForm)MdiParent).mainStatusStrip);
         }
 
         private void BookListForm_Deactivate(object sender, EventArgs e)
         {
-            ToolStripManager.RevertMerge(((MainForm)MdiParent).mainToolStrip, childToolStrip);
-            StatusStrip dest = (StatusStrip)this.MdiParent.Controls["mainStatusStrip"];
-            dest.Items.Remove(countToolStripStatusLabel);
-            this.childStatusStrip.Items.Add(countToolStripStatusLabel);
+            ToolStripManager.RevertMerge(((MainForm)MdiParent).mainToolStrip, this.childToolStrip);
+            ToolStripManager.RevertMerge(((MainForm)MdiParent).mainStatusStrip, this.childStatusStrip);
         }
 
         private void BookListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if ( MdiParent.MdiChildren.Length == 1 )
+            if ( MdiParent.MdiChildren.Length == 1 && e.CloseReason != CloseReason.MdiFormClosing)
             {
-                var result = MessageBox.Show("Do you want to close the last window?"," ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No)
-                    e.Cancel = true;
+                e.Cancel = true;
             }
         }
 

@@ -21,6 +21,7 @@ namespace BookListWF
             BookListForm bookListForm = new BookListForm(MainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
+            ChangeLayout();
         }
 
         private void newViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -28,12 +29,40 @@ namespace BookListWF
             BookListForm bookListForm = new BookListForm(MainDocument);
             bookListForm.MdiParent = this;
             bookListForm.Show();
-            LayoutMdi(MdiLayout.TileHorizontal);
+            ChangeLayout();
         }
 
         private void MainForm_ResizeEnd(object sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.TileHorizontal);
+            ChangeLayout();
+        }
+
+        private void ChangeLayout()
+        {
+            if (verticalToolStripMenuItem.Checked)
+                LayoutMdi(MdiLayout.TileVertical);
+            else
+                LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (verticalToolStripMenuItem.Checked)
+            {
+                horizontalToolStripMenuItem.Checked = true;
+                verticalToolStripMenuItem.Checked = false;
+                ChangeLayout();
+            }
+        }
+
+        private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (horizontalToolStripMenuItem.Checked)
+            {
+                horizontalToolStripMenuItem.Checked = false;
+                verticalToolStripMenuItem.Checked = true;
+                ChangeLayout();
+            }
         }
     }
 }
